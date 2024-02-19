@@ -1,0 +1,32 @@
+lang: en
+main_menu_selector:
+  main_menu_selector: "Select menu item: "
+  start_runtime: "Start"
+  settings: "Settings"
+  stop: "Exit"
+
+interfaces_settings:
+  lang: "Language"
+  input_interface: "Input Method"
+  user_translate_interface: "Translator for your text"
+  chat_interface: "Conversation with AI"
+  ai_translate_interface: "AI text translator"
+  voice_interface: "Voice over method"
+  addon_settings: "Addon Settings"
+
+addon_settings:
+  main_menu_selector: "Select a menu item"
+
+lang_selectors:
+  file: "Change file: "
+  locale: "Change Locale: "
+
+user_selectors:
+  input_interface: "Select input method:\n"
+  translate_interface: "Choose a method to translate your words:\n"
+
+ai_selectors:
+  chat_interface: "Select model:\n"
+  translate_interface: "Select the neural network word translation method:\n"
+  voice_interface: "Select a method for converting neural network replicas into speech:\n"
+

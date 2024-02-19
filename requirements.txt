@@ -1,0 +1,6 @@
+
+# config 
+pyYAML
+
+# jofi 
+sounddevice

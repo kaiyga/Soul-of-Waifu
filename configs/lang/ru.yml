@@ -1,0 +1,34 @@
+lang: ru
+main_menu_selector:
+  main_menu_selector: "Выберете пункт меню: "
+  start_runtime: "Начать"
+  settings: "Настройки"
+  stop: "Выйти"
+
+interfaces_settings:
+  lang: "Язык разговора"
+  input_interface: "Метод Ввода"
+  user_translate_interface: "Переводчик вашего текста"
+  chat_interface: "Диалог с AI"
+  ai_translate_interface: "Переводчик текста AI"
+  voice_interface: "Метод озвучки"
+  addon_settings: "Настройки Аддонов"
+
+addon_settings:
+  main_menu_selector: "Выберете пункт меню"
+
+
+lang_selectors:
+  file: "Выберите файл: "
+  locale: "Выберите локаль: "
+
+user_selectors:
+  input_interface:  "Выберите метод ввода: \n"
+  translate_interface: "Выберете метод перевода ваших слов: \n"
+
+ai_selectors:
+  chat_interface: "Выберете модель: \n"
+  translate_interface: "Выберите метод перевода слов нейросети: \n"
+  voice_interface: "Выберете метод преобразования реплик нейросети в речь: \n"
+
+

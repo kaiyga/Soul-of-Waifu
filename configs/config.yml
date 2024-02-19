@@ -1,0 +1,11 @@
+ai:
+  chat_interface: CharacterAI Chat
+  translate_interface: GoogleTranslater
+  voice_interface: Print text
+lang:
+  file: ru.yml
+  locale: ru
+pytorch_proc: cpu
+user:
+  input_interface: Keybord Input
+  translate_interface: GoogleTranslater

@@ -1,0 +1,5 @@
+PyYaml
+characterai
+
+typing_extensions
+websockets
