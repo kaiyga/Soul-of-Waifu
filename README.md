@@ -1,3 +1,9 @@
+
+# Attention. Original project repo-files. 
+# Kaiy Ragur - Gulyshart (kaiyga) not have right on this code and repo.
+
+# Code from this repository use only addons in modules 
+
 # Soul of Waifu
 <div>
   <img width="220" align="left" src="preview1.jpg"/>
