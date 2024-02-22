@@ -1,6 +1,6 @@
 ai:
-  chat_interface: CharacterAI Chat
-  translate_interface: GoogleTranslater
+  chat_interface: AI OFF
+  translate_interface: Translate OFF
   voice_interface: Print text
 lang:
   file: en.yml
@@ -8,4 +8,4 @@ lang:
 pytorch_proc: cpu
 user:
   input_interface: Keybord Input
-  translate_interface: GoogleTranslater
+  translate_interface: Translate OFF

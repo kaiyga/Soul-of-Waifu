@@ -23,7 +23,7 @@ class Main_Menu(Menu):
     def __init__(self, config: Config) -> None:
         self.lang = Config(str("configs/lang" + f"/{settings_config.config['lang']['file']}")).config
         super().__init__(config, dbg)
-            
+        
     def init_fields(self):
         self = self
 
@@ -32,10 +32,11 @@ class Main_Menu(Menu):
             self.clear_console()
             print("Print 'quit' for back to menu")
             while True:
-                inpt = user.user_input_interface()
-                if inpt == "quit": return
-                ai.ai_voice_interface(ai.ai_translate_interface(ai.ai_chat_interface(user.user_translate_interface(inpt, "en")), settings_config.config['lang']['file'].split(".")[0]))
-
+                try:
+                    inpt = user.user_input_interface()
+                    if inpt == "quit": return
+                    ai.ai_voice_interface(ai.ai_translate_interface(ai.ai_chat_interface(user.user_translate_interface(inpt, "en")), settings_config.config['lang']['file'].split(".")[0]))
+                except: print('')
         @self.add_fieldFunc(self.lang["main_menu_selector"]["settings"])
         def start_settings():
             Settings_Menu_Runtime(settings_config).start()
@@ -47,6 +48,7 @@ class Main_Menu(Menu):
         @self.add_fieldFunc(self.lang["main_menu_selector"]["stop"])
         def stop():
             sys.exit()
+
 
 
 
