@@ -5,6 +5,7 @@ main_menu_selector:
   settings: "Настройки"
   stop: "Выйти"
 
+
 interfaces_settings:
   lang: "Язык разговора"
   input_interface: "Метод Ввода"

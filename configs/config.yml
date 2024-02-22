@@ -3,7 +3,7 @@ ai:
   translate_interface: GoogleTranslater
   voice_interface: Print text
 lang:
-  file: ru.yml
+  file: en.yml
   locale: ru
 pytorch_proc: cpu
 user:

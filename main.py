@@ -23,19 +23,9 @@ class Main_Menu(Menu):
     def __init__(self, config: Config) -> None:
         self.lang = Config(str("configs/lang" + f"/{settings_config.config['lang']['file']}")).config
         super().__init__(config, dbg)
-
-
-    def start(self):
-        while True:
-            self.clear_console()
-            self.selector(self.lang['main_menu_selector']['main_menu_selector'], self.menu_fields)()
-
+            
     def init_fields(self):
         self = self
-
-        @self.add_fieldFunc(self.lang["main_menu_selector"]["settings"])
-        def start_settings():
-            Settings_Menu_Runtime(settings_config).start()
 
         @self.add_fieldFunc(self.lang["main_menu_selector"]["start_runtime"])
         def start_runtime():
@@ -46,9 +36,20 @@ class Main_Menu(Menu):
                 if inpt == "quit": return
                 ai.ai_voice_interface(ai.ai_translate_interface(ai.ai_chat_interface(user.user_translate_interface(inpt, "en")), settings_config.config['lang']['file'].split(".")[0]))
 
+        @self.add_fieldFunc(self.lang["main_menu_selector"]["settings"])
+        def start_settings():
+            Settings_Menu_Runtime(settings_config).start()
+
+        @self.add_fieldFunc(self.lang['interfaces_settings']['addon_settings'])
+        def addons_settings():
+            Addon_Settings_Menu(self.config).start()
+            
         @self.add_fieldFunc(self.lang["main_menu_selector"]["stop"])
         def stop():
             sys.exit()
+
+
+
 
 class Settings_Menu_Runtime(Settings_Menu):
     def __init__(self, config: Config) -> None:
@@ -60,17 +61,13 @@ class Settings_Menu_Runtime(Settings_Menu):
     def init_fields(self):
         settings_menu_lang = self.lang['interfaces_settings']
 
-        self.add_field("Quit", "quit")
+        self.add_field("Quit", None)
         self.add_settings_point(settings_menu_lang['input_interface'], user, "user.input_interface", addon_collection.user_input_interface)
         self.add_settings_point(settings_menu_lang['user_translate_interface'], user, "user.translate_interface", addon_collection.user_translate_interface)
         
         self.add_settings_point(settings_menu_lang['chat_interface'], ai, "ai.chat_interface", addon_collection.ai_chat_interface)
         self.add_settings_point(settings_menu_lang['ai_translate_interface'], ai, "ai.translate_interface", addon_collection.ai_translate_interface)
         self.add_settings_point(settings_menu_lang['voice_interface'], ai, "ai.voice_interface", addon_collection.ai_voice_interface)
-
-        @self.add_fieldFunc(settings_menu_lang['addon_settings'])
-        def addons_settings():
-            Addon_Settings_Menu(self.config).start()
 
         self.lang_selectinon_init()
 
@@ -101,7 +98,7 @@ class Addon_Settings_Menu(Settings_Menu):
         super().__init__(config, DialogEntity())
     
     def init_fields(self):
-        self.add_field("Quit", "quit")
+        self.add_field("Quit", None)
         self.menu_fields.update(addon_collection.settings_menus)
         
 Main_Menu(settings_config).start()

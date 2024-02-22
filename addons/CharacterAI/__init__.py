@@ -81,8 +81,12 @@ class CharacterAI_Addon(AddonTemplate):
             self.add_settings_point("Character", self.obj, "api.character", self.config.config['character_list']['list'])
             @self.add_fieldFunc("Add Character")
             def add_character():
+                print("Write 'quit' for exit")
                 chr_name = input("Character Name: ")
+                if chr_name == "quit" : return
                 chr_id = input("Character ID: ")
+                if chr_name == "quit" : return
+
                 self.config.config['character_list']['list'][chr_name] = chr_id
                 self.reload_conf(self.obj)
 
@@ -91,6 +95,7 @@ class CharacterAI_Addon(AddonTemplate):
                 i=0
                 chr_list =self.config.config['character_list']['list']
                 chr_name = self.selector("Delete Character: ", chr_list, 0)
+                if chr_name == None: return
                 
                 self.config.config['character_list']['list'].pop(chr_name)
                 self.reload_conf(self.obj)

@@ -49,7 +49,7 @@ class Menu():
         while True:
             self.clear_console()
             i = self.selector("Change menu point: ", self.menu_fields)
-            if i == "quit":
+            if i == None:
                 return
             i()
 
@@ -89,7 +89,7 @@ class Menu():
             text+=str("\n"+ inpt_text)
             try:
                 varible = input(text)
-                if varible == "q": return
+                if varible == "q": break
                 varible = int(varible)
 
                 key = list(fields.keys())[varible]
@@ -99,6 +99,7 @@ class Menu():
                         return fields[key]
                     case 0:
                         return key
+
             except:
                 print("Varible not found pls try again")
         
@@ -115,7 +116,7 @@ class Settings_Menu(Menu):
     def __init__(self, config: Config, obj) -> None:
         super().__init__(config)
         self.config = config
-        self.add_field("Quit", "quit")
+        self.add_field("Quit", None)
 
     def init_fields(self):
         ...
@@ -124,10 +125,10 @@ class Settings_Menu(Menu):
         while True:
             self.clear_console()
             resp = self.selector("Change settings : ", self.menu_fields)
-            if resp == "quit": return
+            if resp == None: break
             resp()
 
-    def add_settings_point(self, field_name="", obj=None, config_path="ai.chat_interface", module_list=[], inpt_title="Change varible: ", no_reload=False):
+    def add_settings_point(self, field_name="", obj=None, config_path="ai.chat_interface", module_list=[], inpt_title="Change varible: "):
         """
         Add settings from list selector point 
         """
@@ -135,7 +136,9 @@ class Settings_Menu(Menu):
   
         @self.add_fieldFunc(f"{field_name} : {cfp_value}")
         def infield():
-            self.config.config[cfp[0]][cfp[1]] = self.selector(inpt_title, module_list, 0)
+            resp = self.selector(inpt_title, module_list, 0)
+            if resp != None: self.config.config[cfp[0]][cfp[1]] = resp
+            else: return    
             self.reload_conf(obj)
 
     def add_settings_write_point(self, field_name, obj=None, config_path="ai.chat_interface"):
@@ -146,12 +149,15 @@ class Settings_Menu(Menu):
 
         @self.add_fieldFunc(f"{field_name}")
         def infield():
-            value = input(f"\n\nPrint 'q' to return\n\nOld value: {cfp_value}\nNew value: ")
-            if value == "q": return
+            while True:
+                try:
+                    value = input(f"\n\nPrint 'q' to return\n\nOld value: {cfp_value}\nNew value: ")
+                    if value == "q": break
 
-            self.config.config[cfp[0]][cfp[1]] =  value
-            self.reload_conf(obj)
-
+                    self.config.config[cfp[0]][cfp[1]] =  value
+                    self.reload_conf(obj)
+                    break
+                except: print("Value is not term")
 
 
     def reload_conf(self, obj):
