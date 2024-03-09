@@ -1,6 +1,6 @@
 import os
 
-os.system(f"pip install -r {__path__[0]}/req.txt")
+os.system(os.path.normpath(f"pip install -r {__path__[0]}/req.txt"))
 
 from gulysh_lib.menu_lib import Config, Settings_Menu
 from gulysh_lib.addon_lib import AddonTemplate
