@@ -66,8 +66,8 @@ By default, they should look like this:
 
 The settings of individual modules are located in the **``Addon Settings``** menu
 
-1. [Настройка CharacterAI](addons/CharacterAI/README_RU.MD)
-2. [Настройте ElevenLabs](addons/ElevenLabs/README_RU.MD)
+1. [Settings CharacterAI](addons/CharacterAI/README_RU.MD)
+2. [Settings ElevenLabs](addons/ElevenLabs/README_RU.MD)
 3. Quit, Quit, Start.
 
 ## For addon developers
