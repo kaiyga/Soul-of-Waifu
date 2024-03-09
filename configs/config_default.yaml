@@ -3,8 +3,8 @@ ai:
   translate_interface: GoogleTranslater
   voice_interface: ElevenLabs Voice
 lang:
-  file: ru.yml
-  locale: ru
+  file: en.yml
+  locale: en
 pytorch_proc: cpu
 user:
   input_interface: Keybord Input

@@ -20,9 +20,9 @@ ai:AI = AI(settings_config.config, addon_collection)
 user:User = User(settings_config.config, addon_collection)
 
 class Main_Menu(Menu):
-    def __init__(self, config: Config) -> None:
+    def __init__(self) -> None:
         self.lang = Config(str("configs/lang" + f"/{settings_config.config['lang']['file']}")).config
-        super().__init__(config, dbg)
+        super().__init__(dbg)
         
     def init_fields(self):
         self = self
@@ -30,7 +30,7 @@ class Main_Menu(Menu):
         @self.add_fieldFunc(self.lang["main_menu_selector"]["start_runtime"])
         def start_runtime():
             self.clear_console()
-            print("Print 'quit' for back to menu")
+            print("Print 'quit' for exit")
             while True:
                 try:
                     inpt = user.user_input_interface()
@@ -43,7 +43,7 @@ class Main_Menu(Menu):
 
         @self.add_fieldFunc(self.lang['interfaces_settings']['addon_settings'])
         def addons_settings():
-            Addon_Settings_Menu(self.config).start()
+            Addon_Settings_Menu(settings_config).start()
             
         @self.add_fieldFunc(self.lang["main_menu_selector"]["stop"])
         def stop():
@@ -51,6 +51,7 @@ class Main_Menu(Menu):
 
 
 
+main_menu = Main_Menu()
 
 
 class Settings_Menu_Runtime(Settings_Menu):
@@ -74,7 +75,6 @@ class Settings_Menu_Runtime(Settings_Menu):
         self.lang_selectinon_init()
 
 
-
     def lang_selectinon_init(self):
         
         lang_files = os.listdir("configs/lang/")
@@ -90,6 +90,9 @@ class Settings_Menu_Runtime(Settings_Menu):
     
     def reload_conf(self, obj):
         settings_config.dump()
+        
+        main_menu.__init__()
+
         obj.reload(settings_config.config, addon_collection)
         self.__init__(self.config)
     
@@ -102,5 +105,18 @@ class Addon_Settings_Menu(Settings_Menu):
     def init_fields(self):
         self.add_field("Quit", None)
         self.menu_fields.update(addon_collection.settings_menus)
-        
-Main_Menu(settings_config).start()
+        @self.add_fieldFunc("Download addon")
+        def download_addon():
+            while True:
+                try: link = input(self.lang['addon_settings']['addon_download'])
+                except: print("Not valid")
+
+                try: os.system(f"cd addons/; git clone {link} ; cd ../" )
+                except: print("Download Error. Check README")
+
+                addon_collection.__init__()                
+                print("Complete!")
+
+                break
+            
+main_menu.start()

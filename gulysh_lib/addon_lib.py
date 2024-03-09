@@ -23,6 +23,17 @@ def load_addons(addon_dir="addons"):
 
 
 class Interface_Collection():
+    """
+    Intefaces Collection
+    ```
+    uii user_input_interface() -> str
+    uti user_translate_interface(text:str) -> str
+    aci ai_chat_interface(text:str) -> str
+    ati ai_translate_interface(text:str) -> str
+    avi ai_voice_interface(text:str) -> None # Print() Play_voice()
+    stm settings_menus(config:Config, obj:Interface_Collection) -> None
+    ```
+    """
     def __init__(self) -> None:
         self.user_input_interface = {}
         self.user_translate_interface = {}
@@ -34,6 +45,21 @@ class Interface_Collection():
 
 
 class AddonCollection(Interface_Collection):
+    """
+    Core Addons Inteface Modules Collection
+    
+    Loaded, sorted addons modules 
+    
+    ```
+    uii user_input_interface() -> str
+    uti user_translate_interface(text:str) -> str
+    aci ai_chat_interface(text:str) -> str
+    ati ai_translate_interface(text:str) -> str
+    avi ai_voice_interface(text:str) -> None # Print() Play_voice()
+    stm settings_menus(config:Config, obj:Interface_Collection) -> None
+    ```
+
+    """
     def __init__(self) -> None:
         super().__init__()
         addons = load_addons()
@@ -48,7 +74,22 @@ class AddonCollection(Interface_Collection):
         
 class AddonTemplate(Interface_Collection):
     """
-    Addon template for inheritance
+    Addon Inteface Modules Collection
+    ```
+    uii user_input_interface() -> str
+    uti user_translate_interface(text:str) -> str
+    aci ai_chat_interface(text:str) -> str
+    ati ai_translate_interface(text:str) -> str
+    avi ai_voice_interface(text:str) -> None # Print() Play_voice()
+    stm settings_menus(config:Config, obj:Interface_Collection) -> None
+    ```
+
+    ### Add inteface to Addon
+    ```
+    def init_interfaces(self):
+        @self.add_Interface(interface_name:str="INPUT INTERFACE NAME", 
+                            interface_type:str="uii")
+    ```
     """
     def __init__(self) -> None:
         self.pre_init()

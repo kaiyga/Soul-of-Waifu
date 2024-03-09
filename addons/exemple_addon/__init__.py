@@ -1,3 +1,9 @@
+# Full Addon class. Not copy this. gulysh_lib have a simple template for you 
+# You can see what is a Addon
+
+# Это полный класс аддона. Не копируйте это. gulysh_lib имеет простой шаблон для вас
+# Пока. что вы можете видеть, что такое аддон
+
 class AddonExemple():
     """
     Addon structure for exemple
@@ -10,6 +16,7 @@ class AddonExemple():
         self.pre_init()
 
         # Required Fields
+        # Обязательные поля 
 
         self.addon_path = ""
         self.user_input_interface = [] # void -> str
@@ -20,14 +27,21 @@ class AddonExemple():
         self.ai_voice_interface = [] # str -> print(), play_voice()
 
         # Init interfaces
+        # Здесь происходит вызов инициализации модулей интерфейсов 
 
         self.init_interfaces()
 
     def pre_init():
         pass
 
+    # Definition of justification method
+    # Определяю метод инициализации 
+    
     def init_interfaces(self):
-        
+
+        # Add Modules Interface
+        # Добавляю модули интерфейсов 
+          
         @self.add_Interface("Input Exemple", "user_input_interface")
         def user_input_interface_exemple() -> str:
             return input("Write to Neuro: ")
@@ -83,7 +97,8 @@ class AddonExemple():
     
 
 
-# Лучше используйте шаблон и переопределите методы init_interfaces и pre_init
+# It's better to use a template and override the methods: init_interfaces и pre_init
+# Лучше воспользуйтесь шаблоном и переопределите методы: init_interfaces и pre_init
 
 from gulysh_lib.addon_lib import AddonTemplate
 
@@ -95,13 +110,22 @@ class Addon_Simple_Use_Template(AddonTemplate):
     def pre_init(self):
         pass
 
-    def init_interfaces(self):        
+    # Overriding the initialization for interface modules
+    # Переопределяю метод инициализации модулей интерфейсов
+
+    def init_interfaces(self): 
+
+        # Add Modules Interface
+        # Добавляю модули интерфейсов
+
         @self.add_Interface("Input Exemple", "user_input_interface")
         def user_input_interface_exemple() -> str:
             return input("Write to Neuro: ")
         ...
 
-
+# Addon initialization function
+# Функция инициализации аддона
+        
 def load_addon() -> AddonExemple:
     return Addon_Simple_Use_Template() # Your Addon Class
 

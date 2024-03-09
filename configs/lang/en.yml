@@ -16,6 +16,8 @@ interfaces_settings:
 
 addon_settings:
   main_menu_selector: "Select a menu item"
+  addon_download: "Write addon repository link: "
+
 
 lang_selectors:
   file: "Change file: "

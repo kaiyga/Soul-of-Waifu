@@ -17,6 +17,7 @@ interfaces_settings:
 
 addon_settings:
   main_menu_selector: "Выберете пункт меню"
+  addon_download: "Вставьте ссылку на репозиторий аддона: "
 
 
 lang_selectors:

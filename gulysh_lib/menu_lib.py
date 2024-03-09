@@ -40,12 +40,21 @@ class Config():
 
 class Menu():
     """
-    Класс реализующий логику селектора
+    Menu class
+    
+    You can add point in menu 
+    ```
+    def init_fields(self):
+        # If menu should work with value of point
+        self.add_fileds(filed_name:str, value)
+        
+        # If menu should exec func of point
+        @self.addfieldFunc(field_name)
+        def your_func(): ...
     """
-    def __init__(self, config:Config, debug=False) -> None:
+    def __init__(self, debug=False) -> None:
         
         self.debug = debug
-        self.config = config
         self.menu_fields = {}
         self.init_fields()
     
@@ -89,6 +98,7 @@ class Menu():
         """
         From list selector. Return value from collection 
         """
+        # HARD CODE ZONE DONT TOUCH THIS!!!
         while True:
             i=0
             text=""
@@ -113,7 +123,7 @@ class Menu():
 
             except:
                 print("Varible not found pls try again")
-        
+    
     def clear_console(self):
         if not(self.debug):
             import os
@@ -121,6 +131,15 @@ class Menu():
 
     
     class color:
+        
+        def wrap(text, tag):
+            """
+            Safety format text
+            """
+            return str(tag + text + '\033[0m')
+
+        # Text tags 
+
         PURPLE = '\033[95m'
         CYAN = '\033[96m'
         DARKCYAN = '\033[36m'
@@ -138,9 +157,9 @@ class Settings_Menu(Menu):
     Settings menu for your config!
     """
     def __init__(self, config: Config, obj, debug=False) -> None:
-
-        super().__init__(config, debug=debug)
         self.config = config
+        self.obj = obj
+        super().__init__(debug=debug)
         self.add_field("Quit", None)
 
     def init_fields(self):
@@ -196,7 +215,7 @@ class Settings_Menu(Menu):
     def get_conf_path(self, config_path):
         cfp = config_path.split(".")
 
-        try: cfp_value = self.config.config[cfp[0]][cfp[1]]
+        try:    cfp_value = self.config.config[cfp[0]][cfp[1]]
         except: cfp_value=None; print("Config Value is None!")
         
         return cfp, cfp_value

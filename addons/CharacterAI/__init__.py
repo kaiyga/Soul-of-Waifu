@@ -25,7 +25,7 @@ class CharacterAI_Addon(AddonTemplate):
 
         try: # Login in ChrAI
             self.cAI_client = PyAsyncCAI(self.config.config['api']['api_key'])
-            print(self.cAI_client.user.followers())
+            print(asyncio.run(self.cAI_client.user.followers()))
             print("Client Succses")
         except: # Set None ChrAI
             self.cAI_client = None
@@ -51,12 +51,15 @@ class CharacterAI_Addon(AddonTemplate):
         @self.add_Interface("CharacterAI Chat", "aci")
         def character_ai_chat(text:str) -> str:
 
-            if self.cAI_client == None: self.go_to_settings("Charecter AI API ERROR: Your API key is not valid.\nAdd valid API Key from "); \
-            return "CharacterAI - Addon: Sorry, you should have API. You can try again"
+            if self.cAI_client == None: self.go_to_settings("\nCharecter AI API ERROR: Your API key is not valid.\n\nAdd valid API Key from https://beta.character.ai/profile?\nHow find API-key https://pycai.gitbook.io/welcome/api/values"); \
+            print("CharacterAI - Addon: Sorry, you should have API. You can try again");\
+            return None
             
             if self.chat == None: self.go_to_settings("Pls add/change valid character"); \
-            return "CharacterAI - Addon: Sorry, you should have Character for dialog. You can try again"
+            print("CharacterAI - Addon: Sorry, you should have Character for dialog. You can try again");\
+            return None
 
+            
             async def c(self, text=text):
                 async with self.cAI_client.connect() as chat2:
                     data = await chat2.send_message( self.cAI_character, self.chat['chats'][0]['chat_id'], text, self.author)
@@ -71,14 +74,15 @@ class CharacterAI_Addon(AddonTemplate):
         return self.config.config['character_list']['list'][ self.config.config['api']['character'] ] 
         
     def go_to_settings(self, error):
+        print("In go to settings")
         i = self.CharacterAI_Settings(self.config, self)
-        i.clear_console(); print(i.color.BOLD, error, i.color.END )
+        i.clear_console(); 
+        print(i.color.wrap(error, str(f"{i.color.BOLD} {i.color.RED}")))
         i.start(clear=False)
 
 
     class CharacterAI_Settings(Settings_Menu):
         def __init__(self, config: Config, chrAI_Module_obj, debug=False) -> None:
-            self.obj = chrAI_Module_obj
             super().__init__(config, chrAI_Module_obj, debug)
         
 
