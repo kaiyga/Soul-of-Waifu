@@ -111,7 +111,7 @@ class Addon_Settings_Menu(Settings_Menu):
                 try: link = input(self.lang['addon_settings']['addon_download'])
                 except: print("Not valid")
 
-                try: os.system(f"cd addons/; git clone {link} ; cd ../" )
+                try: os.system(f"cd addons; git clone {link} ; cd .." )
                 except: print("Download Error. Check README")
 
                 addon_collection.__init__()                
