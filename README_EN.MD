@@ -65,3 +65,13 @@ By default, they should look like this:
 (If not, you can kill any conterbuter of your choice)
 
 The settings of individual modules are located in the **``Addon Settings``** menu
+
+1. [Настройка CharacterAI](addons/CharacterAI/README_RU.MD)
+2. [Настройте ElevenLabs](addons/ElevenLabs/README_RU.MD)
+3. Quit, Quit, Start.
+
+## For addon developers
+
+The core has [documentation](docs/en/1.Components.MD) for questions [can be contacted](https://gulysh.art).
+
+To publish the addon, you can commit.
