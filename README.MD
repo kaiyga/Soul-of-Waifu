@@ -1,5 +1,5 @@
 # Soul of Waifu - Core
-[**| EN | TO BE CONTINUED |**](README_EN.MD)
+[**| EN |**](README_EN.MD)
 
 <img src="docs/cont/preview.jpg" href="https://twitter.com/onisarashi"></img>
 
@@ -35,7 +35,8 @@ Art by: https://twitter.com/onisarashi
 
 Протестированные аддоны будут попадать в [Addon List](ADDON_LIST.MD)
 
-**!!! Для загрузки аддонов нужно иметь [установленный GIT](https://git-scm.com/downloads)** 
+> [!NOTE]
+> Для загрузки аддонов нужно иметь [установленный GIT](https://git-scm.com/downloads)** 
 
 ### | Начать
 
@@ -45,8 +46,9 @@ Art by: https://twitter.com/onisarashi
 - Python-PIP
 - Python-VENV
 
-*Ремарка: Если вы пользователь Windows, то вы уже имеете полный пакет Python. 
-Пользователям Linux стоит проверить свою систему на наличие этих компонентов*
+> [!NOTE]
+> Если вы пользователь Windows, то вы уже имеете полный пакет Python. 
+> Пользователям Linux стоит проверить свою систему на наличие этих компонентов
 
 [Как скачать или установить тот или иной репозиторий](https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives)
 
