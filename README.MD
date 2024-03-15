@@ -19,6 +19,8 @@ Art by: https://twitter.com/onisarashi
 Многомодульность ядра достигается за счёт системы аддонов. 
 Каждый аддон реализует модуль под характеристики интерфейса.
 
+Сменить модуль интерфейса в цепочке можно в `Настройки` (`Settings`)
+
 ### |  Начальная комплектация 
 
 В этом репозитории, вы можете загрузить версию Soul of Waifu, которая имеет модули CharacterAI, ElevenLabs, Google Translate и PlaceHolder'ы, которые не дадут системе сломаться, если вы пожелаете отключить какой-то из модулей
@@ -35,19 +37,16 @@ Art by: https://twitter.com/onisarashi
 
 Протестированные аддоны будут попадать в [Addon List](ADDON_LIST.MD)
 
-> [!NOTE]
-> Для загрузки аддонов нужно иметь [установленный GIT](https://git-scm.com/downloads)** 
-
 ### | Начать
-
 
 Главное иметь полный набор компонентов Python:
 - **Python 3.11** 
 - Python-PIP
 - Python-VENV
+- [Git](https://git-scm.com/downloads)
 
 > [!NOTE]
-> Если вы пользователь Windows, то вы уже имеете полный пакет Python. 
+> Если вы пользователь Windows, то вы уже имеете полный пакет Python. И вам нужно будет установить [Git](https://git-scm.com/downloads) 
 > Пользователям Linux стоит проверить свою систему на наличие этих компонентов
 
 [Как скачать или установить тот или иной репозиторий](https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives)

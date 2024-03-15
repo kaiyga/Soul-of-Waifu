@@ -18,6 +18,8 @@ The core implements input -> output of text and its transformation as the chain 
 The multimodularity of the core is achieved through a system of addons.
 Each addon implements a module according to the interface characteristics.
 
+You can switch interface module in chain in the `Settings`  
+
 ### | Basic equipment
 
 In this repository you can download a version of Soul of Waifu with the CharacterAI, ElevenLabs, Google Translate, and PlaceHolder`s modules that will keep the system from crashing if you want to disable any of the modules.
@@ -42,9 +44,11 @@ The main thing is to have a complete set of Python components:
 - **Python 3.11** 
 - Python-PIP
 - Python-VENV
+- [Git](https://git-scm.com/downloads)
 
-*Remark: If you are a Windows user, you already have the full Python package. 
-Linux users should check their system for these components*
+> [!NOTE]
+> If you are a Windows user, you already have the full Python package. Install [Git](https://git-scm.com/downloads)  
+> Linux users should check their system for these components*
 
 [How to download or install a particular repository](https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives)
 

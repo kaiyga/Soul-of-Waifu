@@ -1,5 +1,5 @@
 PyYaml
-characterai
+git+https://codeberg.org/kaiyga/CharacterAITestfork.git@main#egg=characterai 
 
 typing_extensions
 websockets
